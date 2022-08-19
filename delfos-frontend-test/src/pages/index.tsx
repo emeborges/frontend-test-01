@@ -1,18 +1,17 @@
 import { Box, Container, SpeedDial, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Navbar from "../components/Navbar";
-import ControlledOpenSpeedDial from "../components/SpeedDial";
+import BoxWidget from "../components/BoxWidget";
+import ControlledOpenSpeedDial from "../components/SpeedDialButton";
+import { StoresProvider } from "../hooks/useStoreItems";
+import Home from "./home";
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
   return (
-    <Box width={"100%"} minHeight={"10"}>
-      <Navbar />
-      <Container maxWidth={"xl"}>
-        <ControlledOpenSpeedDial />
-        asdfasdf
-      </Container>
-    </Box>
+    <StoresProvider>
+      <Home />
+    </StoresProvider>
   );
 };
 
-export default Home;
+export default Index;
