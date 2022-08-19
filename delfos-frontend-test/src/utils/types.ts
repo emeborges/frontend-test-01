@@ -1,4 +1,5 @@
 export interface ItemsProps {
+  id?: number | null;
   nameStore?: string;
   jan?: number;
   fev?: number;

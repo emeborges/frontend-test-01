@@ -47,7 +47,7 @@ export default function BoxWidget({ store }: Props) {
   return (
     <Box
       sx={{
-        margin: "0 auto",
+        margin: "1rem auto",
         border: "1px solid rgba(0,0,0,0.2)",
         height: "100%",
         width: "90%",

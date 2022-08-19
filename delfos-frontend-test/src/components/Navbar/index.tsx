@@ -7,8 +7,11 @@ import {
   alpha,
   TextField,
 } from "@mui/material";
+import { useStoresInfos } from "../../hooks/useStoreItems";
 
 export default function Navbar() {
+  const { searchLocally } = useStoresInfos();
+
   return (
     <AppBar
       position="static"
@@ -35,13 +38,13 @@ export default function Navbar() {
         />
         <TextField
           id="outlined-search"
-          label="Search"
+          label="Pesquisar"
           type="search"
           size="small"
           sx={{
             width: "300px",
           }}
-          onChange={(event) => console.log(event.target.value)}
+          onChange={(event) => searchLocally(event.target.value)}
         />
       </Toolbar>
     </AppBar>

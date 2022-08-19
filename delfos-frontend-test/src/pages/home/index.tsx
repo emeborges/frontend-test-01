@@ -4,9 +4,11 @@ import Navbar from "../../components/Navbar";
 import BoxWidget from "../../components/BoxWidget";
 import SpeedDialButton from "../../components/SpeedDialButton";
 import { useStoresInfos } from "../../hooks/useStoreItems";
+import CircularLoading from "../../components/CircularLoading";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
-  const { storesInfos } = useStoresInfos();
+  const { storesInfos, searchStoresInfos, load, searchTerm } = useStoresInfos();
 
   return (
     <Box width={"100%"} minHeight={"10"}>
@@ -17,10 +19,35 @@ const Home: NextPage = () => {
           padding: "1rem",
         }}
       >
-        <SpeedDialButton />
-        {storesInfos.map((store, key) => (
-          <BoxWidget key={key} store={store} />
-        ))}
+        {load ? (
+          <CircularLoading />
+        ) : (
+          <>
+            <SpeedDialButton />
+            {searchTerm == "" ? (
+              storesInfos.map((store, key) => (
+                <BoxWidget key={key} store={store} />
+              ))
+            ) : searchStoresInfos.length > 0 ? (
+              searchStoresInfos!.map((store, key) => (
+                <BoxWidget key={key} store={store} />
+              ))
+            ) : (
+              <>
+                <Typography
+                  textAlign={"center"}
+                  variant="h5"
+                  sx={{ marginTop: 2 }}
+                >
+                  Nenhum item encontrado..
+                </Typography>
+                <Typography textAlign="center">
+                  Por favor, tente novamente
+                </Typography>
+              </>
+            )}
+          </>
+        )}
       </Container>
     </Box>
   );

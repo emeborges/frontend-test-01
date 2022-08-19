@@ -4,6 +4,7 @@ import { Button, Modal, TextField, Typography } from "@mui/material";
 import { ItemsProps } from "../../utils/types";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { useStoresInfos } from "../../hooks/useStoreItems";
 
 interface Props {
   open: boolean;
@@ -12,14 +13,16 @@ interface Props {
 }
 
 export default function ModalItem({ open, handleClose, initialVal }: Props) {
-  const initialValues = {
+  const { addNewStore, editStore } = useStoresInfos();
+  let initialValues = {
     nameStore: initialVal?.nameStore || "",
-    jan: initialVal?.jan || "",
-    fev: initialVal?.fev || "",
-    mar: initialVal?.mar || "",
-    abr: initialVal?.abr || "",
-    mai: initialVal?.mai || "",
-    jun: initialVal?.jun || "",
+    jan: initialVal?.jan || 0,
+    fev: initialVal?.fev || 0,
+    mar: initialVal?.mar || 0,
+    abr: initialVal?.abr || 0,
+    mai: initialVal?.mai || 0,
+    jun: initialVal?.jun || 0,
+    id: initialVal?.id || null,
   };
 
   const formSchema = Yup.object().shape({
@@ -31,11 +34,10 @@ export default function ModalItem({ open, handleClose, initialVal }: Props) {
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: formSchema,
-    onSubmit: (values) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-        formik.setSubmitting(false);
-      }, 3000);
+    onSubmit: (values, { resetForm }) => {
+      initialVal == undefined ? addNewStore(values) : editStore(values);
+      handleClose();
+      resetForm();
     },
   });
 
