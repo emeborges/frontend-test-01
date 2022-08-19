@@ -1,11 +1,4 @@
-import { useRouter } from "next/router";
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { ItemsProps } from "../utils/types";
 
 const initialStores = [

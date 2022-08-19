@@ -1,8 +1,6 @@
-import { Box, Container, IconButton, Typography } from "@mui/material";
-import SettingsIcon from "@mui/icons-material/Settings";
+import { Box, Typography } from "@mui/material";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { useStoresInfos } from "../../hooks/useStoreItems";
 import Settingsbutton from "./Settingsbutton";
 import { ItemsProps } from "../../utils/types";
 

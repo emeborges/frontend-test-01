@@ -1,11 +1,10 @@
-import { Box, Container, SpeedDial, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import type { NextPage } from "next";
 import Navbar from "../../components/Navbar";
 import BoxWidget from "../../components/BoxWidget";
 import SpeedDialButton from "../../components/SpeedDialButton";
 import { useStoresInfos } from "../../hooks/useStoreItems";
 import CircularLoading from "../../components/CircularLoading";
-import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const { storesInfos, searchStoresInfos, load, searchTerm } = useStoresInfos();

@@ -1,12 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  styled,
-  alpha,
-  TextField,
-} from "@mui/material";
+import { AppBar, Box, Toolbar, TextField } from "@mui/material";
 import { useStoresInfos } from "../../hooks/useStoreItems";
 
 export default function Navbar() {

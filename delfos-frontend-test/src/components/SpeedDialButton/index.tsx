@@ -1,21 +1,13 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
-import SaveIcon from "@mui/icons-material/Save";
-import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
-import { Button, Modal, Typography } from "@mui/material";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
-import ModalItem from "../Modal";
+import ModalItem from "../ModalItem";
 
 export default function SpeedDialButton() {
-  const [open, setOpen] = useState(false);
-  const handleClose = () => setOpen(false);
-
   const [openModal, setOpenModal] = useState(false);
+
   const handleCloseModal = () => setOpenModal(false);
   const handleOpenModal = () => setOpenModal(true);
 
